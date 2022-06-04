@@ -10,12 +10,18 @@ function Wordle({ solution }) {
     useEffect(() => {
         window.addEventListener('keyup', handleKeyUp)
 
-        return () => window.removeEventListener('keyup', handleKeyUp)
-    }, [handleKeyUp])
+        if (isCorrect) {
+            console.log('congrats u win')
+            window.removeEventListener('keyup', handleKeyUp)
+        }
+        
+        if (turn > 5) {
+            console.log('u lost');
+            window.removeEventListener('keyup', handleKeyUp)
+        }
 
-    useEffect(() => {
-        console.log(guesses, turn, isCorrect);
-    }, [guesses, turn, isCorrect])
+        return () => window.removeEventListener('keyup', handleKeyUp)
+    }, [handleKeyUp, isCorrect, turn])
 
     return (<>
         <div>solution - {solution}</div>
