@@ -26,8 +26,8 @@ function Wordle({ solution }) {
     }, [handleKeyUp, isCorrect, turn])
 
     return (<>
-        <div>solution - {solution}</div>
-        <div>current guess - {currentGuess}</div>
+        {/* <div>solution - {solution}</div>
+        <div>current guess - {currentGuess}</div> */}
         <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
         <KeyPad usedKeys={usedKeys} />
         {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} />}
